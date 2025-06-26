@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using WeatherForecastApi.Models;
-using WeatherForecastApi.Data;
 using WeatherForecastApi.Services;
 using WeatherForecastApi.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace WeatherForecastApi.Controllers
 {
@@ -29,8 +27,24 @@ namespace WeatherForecastApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
         {
-            var locations = await _context.Locations.ToListAsync();
-            return Ok(locations);
+            try
+            {
+                var locations = await _context.Locations.ToListAsync();
+
+                if (locations == null || !locations.Any())
+                {
+                    _logger.LogInformation("No locations found in the database.");
+                    return NotFound("No locations available.");
+                }
+
+                _logger.LogInformation("Retrieved {Count} locations from the database.", locations.Count);
+                return Ok(locations);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while retrieving locations.");
+                return StatusCode(500, "An unexpected error occurred while fetching locations.");
+            }
         }
 
         // POST: api/weather
@@ -64,54 +78,78 @@ namespace WeatherForecastApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLocation(int id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null) return NotFound();
+            if (id <= 0)
+            {
+                _logger.LogWarning("Invalid delete request received for ID: {Id}", id);
+                return BadRequest("Invalid location ID.");
+            }
 
-            _context.Locations.Remove(location);
-            await _context.SaveChangesAsync();
-            return NoContent();
+            try
+            {
+                var location = await _context.Locations.FindAsync(id);
+                if (location == null)
+                {
+                    _logger.LogInformation("Location ID {Id} not found for deletion.", id);
+                    return NotFound($"Location with ID {id} not found.");
+                }
+
+                _context.Locations.Remove(location);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation("Successfully deleted Location ID {Id}", id);
+                return NoContent();
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Database error while deleting Location ID {Id}", id);
+                return StatusCode(500, "An error occurred while deleting the location.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error during delete operation for ID {Id}", id);
+                return StatusCode(500, "An unexpected error occurred.");
+            }
         }
 
         // GET: api/weather/forecast/{id}
         [HttpGet("forecast/{id}")]
         public async Task<ActionResult<WeatherForecast>> GetForecast(int id)
         {
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null) return NotFound();
-
-            var forecast = await _weatherService.GetForecastAsync(location.Latitude, location.Longitude);
-            return forecast != null ? Ok(forecast) : StatusCode(503, "Unable to fetch forecast.");
-        }
-    }
-
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
-    {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            if (id <= 0)
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                _logger.LogWarning("Invalid location ID received: {Id}", id);
+                return BadRequest("Invalid location ID.");
+            }
+
+            try
+            {
+                var location = await _context.Locations.FindAsync(id);
+                if (location == null)
+                {
+                    _logger.LogInformation("Location with ID {Id} not found.", id);
+                    return NotFound($"Location with ID {id} not found.");
+                }
+
+                var forecast = await _weatherService.GetForecastAsync(location.Latitude, location.Longitude);
+                if (forecast == null)
+                {
+                    _logger.LogWarning("Forecast unavailable for Location ID {Id} (Lat: {Lat}, Long: {Long})",
+                        id, location.Latitude, location.Longitude);
+                    return StatusCode(503, "Unable to fetch forecast.");
+                }
+
+                return Ok(forecast);
+            }
+            catch (HttpRequestException ex)
+            {
+                _logger.LogError(ex, "Weather service HTTP error for Location ID {Id}", id);
+                return StatusCode(503, "Weather service is unavailable.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error retrieving forecast for Location ID {Id}", id);
+                return StatusCode(500, "An unexpected error occurred.");
+            }
         }
     }
-
-
 }
