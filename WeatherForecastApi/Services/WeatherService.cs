@@ -5,7 +5,7 @@ using WeatherForecastApi.Models;
 
 namespace WeatherForecastApi.Services
 {
-    public class WeatherService
+    public class WeatherService : IWeatherService
     {
         private readonly HttpClient _http;
 
