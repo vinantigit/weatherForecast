@@ -4,6 +4,7 @@ using WeatherForecastApi.Data;
 using WeatherForecastApi.Services;
 using WeatherForecastApi.DataAccess;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace WeatherForecastApi.Controllers
 {
@@ -13,11 +14,14 @@ namespace WeatherForecastApi.Controllers
     {
         private readonly WeatherService _weatherService;
         private readonly WeatherDbContext _context;
+        private readonly ILogger<WeatherController> _logger;
 
-        public WeatherController(WeatherService weatherService, WeatherDbContext context)
+        public WeatherController(WeatherService weatherService, WeatherDbContext context, ILogger<WeatherController> logger)
         {
             _weatherService = weatherService;
             _context = context;
+            _logger = logger;
+
         }
 
 
@@ -33,9 +37,27 @@ namespace WeatherForecastApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Location>> AddLocation([FromBody] Location location)
         {
-            await _context.Locations.AddAsync(location);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetLocations), new { id = location.Id }, location);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                await _context.Locations.AddAsync(location);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetLocations), new { id = location.Id }, location);
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Error occurred while saving the location.");
+                return StatusCode(500, "An error occurred while saving the location.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while processing request");
+                return StatusCode(500, $"Unexpected error: {ex.Message}");
+            }
         }
 
         // DELETE: api/weather/{id}
