@@ -1,7 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿/// <summary>
+/// Represents a geographic location with latitude and longitude coordinates.
+/// Used for storing and retrieving location data within the Weather Forecast API.
+/// Includes validation attributes to ensure data integrity.
+/// </summary>
 
 namespace WeatherForecastApi.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class Location
     {
         [Key]

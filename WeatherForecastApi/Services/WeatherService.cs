@@ -1,10 +1,14 @@
-﻿using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
-using WeatherForecastApi.Models;
+﻿/// <summary>
+/// Implements the <see cref="IWeatherService"/> interface to fetch current weather forecast data
+/// from the Open-Meteo API using geographic coordinates.
+/// Parses JSON responses and returns a simplified <see cref="WeatherForecast"/> model.
+/// </summary>
+/// 
 
 namespace WeatherForecastApi.Services
 {
+    using System.Text.Json;
+    using WeatherForecastApi.Models;
     public class WeatherService : IWeatherService
     {
         private readonly HttpClient _http;

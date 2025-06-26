@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|c:\\users\\vinan\\source\\repos\\weatherforecast\\weatherforecastapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|c:\\users\\vinan\\source\\repos\\weatherforecast\\weatherforecastapi\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|solutionrelative:services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,24 +15,8 @@
       "RelativeMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|solutionrelative:models\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|c:\\users\\vinan\\source\\repos\\weatherforecast\\weatherforecastapi\\migrations\\weatherdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|solutionrelative:migrations\\weatherdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|c:\\users\\vinan\\source\\repos\\weatherforecast\\weatherforecastapi\\migrations\\20250626030319_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|solutionrelative:migrations\\20250626030319_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|c:\\users\\vinan\\source\\repos\\weatherforecast\\weatherforecastapi\\dataaccess\\weatherdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|solutionrelative:dataaccess\\weatherdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|c:\\users\\vinan\\source\\repos\\weatherforecast\\weatherforecastapi\\data\\inmemorystore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|solutionrelative:data\\inmemorystore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|c:\\users\\vinan\\source\\repos\\weatherforecast\\weatherforecastapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5701F16A-3931-4373-9B84-F525823181C3}|WeatherForecastApi.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,123 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "WeatherService.cs",
               "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Services\\WeatherService.cs",
               "RelativeDocumentMoniker": "Services\\WeatherService.cs",
               "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Services\\WeatherService.cs",
               "RelativeToolTip": "Services\\WeatherService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAewBoAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:04:44.737Z",
+              "WhenOpened": "2025-06-26T15:56:17.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Models\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "Models\\WeatherForecast.cs",
               "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Models\\WeatherForecast.cs",
               "RelativeToolTip": "Models\\WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:04:07.965Z",
+              "WhenOpened": "2025-06-26T15:54:02.737Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Location.cs",
               "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Models\\Location.cs",
               "RelativeDocumentMoniker": "Models\\Location.cs",
               "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Models\\Location.cs",
               "RelativeToolTip": "Models\\Location.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:04:05.096Z",
+              "WhenOpened": "2025-06-26T15:53:32.882Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "WeatherDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Migrations\\WeatherDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "Migrations\\WeatherDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Migrations\\WeatherDbContextModelSnapshot.cs",
-              "RelativeToolTip": "Migrations\\WeatherDbContextModelSnapshot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:03:59.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "20250626030319_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Migrations\\20250626030319_InitialCreate.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250626030319_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Migrations\\20250626030319_InitialCreate.cs",
-              "RelativeToolTip": "Migrations\\20250626030319_InitialCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:03:54.262Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "WeatherDbContext.cs",
               "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\DataAccess\\WeatherDbContext.cs",
               "RelativeDocumentMoniker": "DataAccess\\WeatherDbContext.cs",
               "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\DataAccess\\WeatherDbContext.cs",
               "RelativeToolTip": "DataAccess\\WeatherDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:03:47.939Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "InMemoryStore.cs",
-              "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Data\\InMemoryStore.cs",
-              "RelativeDocumentMoniker": "Data\\InMemoryStore.cs",
-              "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Data\\InMemoryStore.cs",
-              "RelativeToolTip": "Data\\InMemoryStore.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:03:42.874Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
-              "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Controllers\\WeatherForecastController.cs*",
-              "RelativeToolTip": "Controllers\\WeatherForecastController.cs*",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAWwIQAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T15:03:17.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\vinan\\source\\repos\\WeatherForecast\\WeatherForecastApi\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-26T15:03:13.198Z",
+              "WhenOpened": "2025-06-26T15:52:54.191Z",
               "EditorCaption": ""
             }
           ]
