@@ -1,4 +1,6 @@
 using WeatherForecastApi.Services;
+using WeatherForecastApi.DataAccess;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,11 +17,15 @@ builder.Services.AddHttpClient();
 //Service registration to make it injectable into controller
 builder.Services.AddScoped<WeatherService>();
 
+builder.Services.AddDbContext<WeatherDbContext>(options =>
+    options.UseSqlite("Data Source=weather.db"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }

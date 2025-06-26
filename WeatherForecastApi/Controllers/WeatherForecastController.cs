@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using WeatherForecastApi.Models;
 using WeatherForecastApi.Data;
 using WeatherForecastApi.Services;
+using WeatherForecastApi.DataAccess;
+using Microsoft.EntityFrameworkCore;
 
 namespace WeatherForecastApi.Controllers
 {
@@ -10,39 +12,41 @@ namespace WeatherForecastApi.Controllers
     public class WeatherController : ControllerBase
     {
         private readonly WeatherService _weatherService;
+        private readonly WeatherDbContext _context;
 
-        public WeatherController(WeatherService weatherService)
+        public WeatherController(WeatherService weatherService, WeatherDbContext context)
         {
             _weatherService = weatherService;
+            _context = context;
         }
+
 
         // GET: api/weather
         [HttpGet]
-        public ActionResult<IEnumerable<Location>> GetLocations()
+        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
         {
-            return Ok(InMemoryStore.Locations);
+            var locations = await _context.Locations.ToListAsync();
+            return Ok(locations);
         }
 
         // POST: api/weather
         [HttpPost]
-        public ActionResult<Location> AddLocation([FromBody] Location location)
+        public async Task<ActionResult<Location>> AddLocation([FromBody] Location location)
         {
-            location.Id = InMemoryStore.Locations.Count > 0
-                ? InMemoryStore.Locations.Max(x => x.Id) + 1
-                : 1;
-
-            InMemoryStore.Locations.Add(location);
+            await _context.Locations.AddAsync(location);
+            await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetLocations), new { id = location.Id }, location);
         }
 
         // DELETE: api/weather/{id}
         [HttpDelete("{id}")]
-        public IActionResult DeleteLocation(int id)
+        public async Task<IActionResult> DeleteLocation(int id)
         {
-            var location = InMemoryStore.Locations.FirstOrDefault(x => x.Id == id);
+            var location = await _context.Locations.FindAsync(id);
             if (location == null) return NotFound();
 
-            InMemoryStore.Locations.Remove(location);
+            _context.Locations.Remove(location);
+            await _context.SaveChangesAsync();
             return NoContent();
         }
 
@@ -50,7 +54,7 @@ namespace WeatherForecastApi.Controllers
         [HttpGet("forecast/{id}")]
         public async Task<ActionResult<WeatherForecast>> GetForecast(int id)
         {
-            var location = InMemoryStore.Locations.FirstOrDefault(x => x.Id == id);
+            var location = await _context.Locations.FindAsync(id);
             if (location == null) return NotFound();
 
             var forecast = await _weatherService.GetForecastAsync(location.Latitude, location.Longitude);
